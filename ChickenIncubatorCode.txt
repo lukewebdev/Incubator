@@ -4,6 +4,8 @@
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2); 
+//Alternatively, sainsmart backlit LCD with button shield uses these pins:
+//LiquidCrystal lcd(8, 13, 9, 4, 5, 6, 7);
 
 #define DHTPIN A2   // what pin we're connected to
 #define RELAY 7
@@ -51,7 +53,7 @@ void loop() {
     lcd.print("Temp: "); 
     lcd.print(t);
     lcd.println("*C ");
-       if (t > 25)
+       if (t > 37.5)//37.5C = 99.5F for Chickens. Quail, try 38.3C = 101F. Forced air temps should be lower.
   {
     digitalWrite(7,HIGH);
   }
